@@ -148,6 +148,7 @@ func (st SchemaTypeCheck) validateString(schema *base.Schema, context *model.Rul
 		script := strings.Replace("const regex = new RegExp('{pattern}');", "{pattern}", schema.Value.Pattern, 1)
 		_, err := vm.RunString(script)
 		if err != nil {
+			fmt.Println(err)
 			result := st.buildResult("schema `pattern` should be a ECMA-262 regular expression dialect",
 				fmt.Sprintf("%s.%s", schema.GenerateJSONPath(), "pattern"),
 				schema, schema.Value.GoLow().Pattern.KeyNode, context)

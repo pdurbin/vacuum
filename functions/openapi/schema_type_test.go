@@ -155,7 +155,7 @@ components:
   schemas:
     Gum:
      type: string
-     pattern: (*&@(*&@(*&@#*&@`
+     pattern: "^[^:<>;#/\"\\*\\|\\?\\\\]*$"`
 
 	document, err := libopenapi.NewDocument([]byte(yml))
 	if err != nil {
